@@ -1,0 +1,173 @@
+ *{
+          font-family: Archive;
+  }
+
+ path, circle{
+          stroke:rgba(0,123,255,.2627451) !important;
+          stroke-width:2px;
+          stroke-linejoin: round;
+          cursor: pointer;
+          }
+          .stkhover{
+            stroke:rgba(0,123,255,1) !important;
+            stroke-width:2px;
+          }
+
+          /*.section11{ fill:rgba(0,123,255,.0627451) !important; stroke:rgba(0,123,255,.2627451) !important;}
+          .section21{ fill:rgba(0,123,255,.200451) !important; stroke:rgba(0,123,255,.2627451) !important; }
+          .section31{ fill:rgba(0,123,255,.4627451) !important;stroke:rgba(0,123,255,.2627451) !important; }
+          .section41{ fill:rgba(0,123,255,.6627451) !important;stroke:rgba(0,123,255,.2627451) !important; }
+          .section51{ fill:rgba(0,123,255,.8627451) !important; stroke:rgba(0,123,255,.2627451) !important;}
+
+          .section11:hover,
+          .section21:hover,
+          .section31:hover,
+          .section41:hover,
+          .section51:hover{ stroke:rgba(0,123,255,1) !important; stroke-width:2px;  }
+
+          .section12{ fill:rgba(192,192,192,.0627451) !important; stroke:rgba(96,96,96,.23456) !important;}
+          .section22{ fill:rgba(192,192,192,.200451) !important; stroke:rgba(96,96,96,.25678) !important;}
+          .section32{ fill:rgba(192,192,192,.4627451) !important; stroke:rgba(96,96,96,.2789) !important;}
+          .section42{ fill:rgba(192,192,192,.6627451) !important; stroke:rgba(96,96,96,.2946) !important;}
+          .section52{ fill:rgba(192,192,192,.8627451) !important; stroke:rgba(96,96,96,.2068) !important;}
+
+          .section12:hover,
+          .section22:hover,
+          .section32:hover,
+          .section42:hover,
+          .section52:hover{ stroke:rgba(96,96,96, 0.8) !important; stroke-width:2px;  }
+
+          .section13{ fill:rgba(40,167,69,.02549) !important; stroke:rgba(40,167,69,0.099) !important; }
+          .section23{ fill:rgba(40,167,69,.042549) !important;stroke:rgba(40,167,69,0.099) !important; }
+          .section33{ fill:rgba(40,167,69,.162549) !important;stroke:rgba(40,167,69,0.099) !important; }
+          .section43{ fill:rgba(40,167,69,.282549) !important;stroke:rgba(40,167,69,0.099) !important; }
+          .section53{ fill:rgba(40,167,69,.292549) !important;stroke:rgba(40,167,69,0.099) !important; }
+
+          .section13:hover,
+          .section23:hover,
+          .section33:hover,
+          .section43:hover,
+          .section53:hover{ stroke:rgba(40,167,69,.4549) !important; stroke-width:2px;  }
+
+
+          .section14{ fill:rgba(255,7,58,.02549) !important; stroke:rgba(255,7,58,.092549) !important;}
+          .section24{ fill:rgba(255,7,58,.42549) !important; stroke:rgba(255,7,58,.092549) !important;}
+          .section34{ fill:rgba(255,7,58,.62549) !important; stroke:rgba(255,7,58,.092549) !important;}
+          .section44{ fill:rgba(255,7,58,.82549) !important; stroke:rgba(255,7,58,.092549) !important;}
+          .section54{ fill:rgba(255,7,58,.92549) !important; stroke:rgba(255,7,58,.092549) !important;}
+
+          .section14:hover,
+          .section24:hover,
+          .section34:hover,
+          .section44:hover,
+          .section54:hover{ stroke:rgba(255,7,58,.39549) !important; stroke-width:2px;  }
+
+/*background-color: white;*/
+        /*}*/
+
+
+        .section01{ fill:rgba(255, 0, 0, 0.096) !important; stroke:rgba(255,0,0,.234) !important;}
+            .section11{ fill:rgba(255, 0, 0, 0.226) !important; stroke:rgba(255,0,0,.342) !important;}
+            .section21{ fill:rgba(255, 0, 0, 0.342) !important; stroke:rgba(255,0,0,.384) !important; }
+            .section31{ fill:rgba(255, 0, 0, 0.384) !important; stroke:rgba(255,0,0,.411) !important; }
+            .section41{ fill:rgba(255, 0, 0, 0.411) !important; stroke:rgba(255,0,0,.466) !important; }
+            .section51{ fill:rgba(255, 0, 0, 0.466) !important; stroke:rgba(255,0,0,.507) !important;}
+            .section61{ fill:rgba(255, 0, 0, 0.507) !important; stroke:rgba(255,0,0,.564) !important;}
+            .section71{ fill:rgba(255, 0, 0, 0.514) !important; stroke:rgba(255,0,0,.664) !important;}
+            .section81{ fill:rgba(255, 0, 0, 0.664) !important; stroke:rgba(255,0,0,.685) !important;}
+            .section91{ fill:rgba(255, 0, 0, 0.685) !important; stroke:rgba(255,0,0,.800) !important;}
+            
+
+            .section11:hover,
+            .section21:hover,
+            .section31:hover,
+            .section41:hover,
+            .section51:hover,
+            .section61:hover,
+            .section71:hover,
+            .section81:hover,
+            .section91:hover,
+            .section01:hover{ stroke:rgba(255,0,0,1) !important; stroke-width:2px;  }
+            
+            .section02{ fill:rgba(0, 100, 255, 0.096) !important; stroke:rgba(0,100,255,.234) !important;}
+            .section12{ fill:rgba(0, 100, 255, 0.226) !important; stroke:rgba(0,100,255,.342) !important;}
+            .section22{ fill:rgba(0, 100, 255, 0.342) !important; stroke:rgba(0,100,255,.384) !important; }
+            .section32{ fill:rgba(0, 100, 255, 0.384) !important; stroke:rgba(0,100,255,.411) !important; }
+            .section42{ fill:rgba(0, 100, 255, 0.411) !important; stroke:rgba(0,100,255,.466) !important; }
+            .section52{ fill:rgba(0, 100, 255, 0.466) !important; stroke:rgba(0,100,255,.507) !important;}
+            .section62{ fill:rgba(0, 100, 255, 0.507) !important; stroke:rgba(0,100,255,.564) !important;}
+            .section72{ fill:rgba(0, 100, 255, 0.564) !important; stroke:rgba(0,100,255,.664) !important;}
+            .section82{ fill:rgba(0, 100, 255, 0.664) !important; stroke:rgba(0,100,255,.685) !important;}
+            .section92{ fill:rgba(0, 100, 255, 0.685) !important; stroke:rgba(0,100,255,.800) !important;}
+            
+
+            .section12:hover,
+            .section22:hover,
+            .section32:hover,
+            .section42:hover,
+            .section52:hover,
+            .section62:hover,
+            .section72:hover,
+            .section82:hover,
+            .section92:hover,
+            .section02:hover{ stroke:rgba(0,0,255,1) !important; stroke-width:2px;  }
+
+            .section11:hover,
+            .section21:hover,
+            .section31:hover,
+            .section41:hover,
+            .section51:hover,
+            .section61:hover,
+            .section71:hover,
+            .section81:hover,
+            .section91:hover,
+            .section01:hover{ stroke:rgba(255,0,0,1) !important; stroke-width:2px;  }
+            
+            .section03{ fill:rgba(0, 64, 0, 0.096) !important; stroke:rgba(0,64,0,.234) !important;}
+            .section13{ fill:rgba(0, 64, 0, 0.226) !important; stroke:rgba(0,64,0,.342) !important;}
+            .section23{ fill:rgba(0, 64, 0, 0.342) !important; stroke:rgba(0,64,0,.384) !important; }
+            .section33{ fill:rgba(0, 64, 0, 0.384) !important; stroke:rgba(0,64,0,.411) !important; }
+            .section43{ fill:rgba(0, 64, 0, 0.411) !important; stroke:rgba(0,64,0,.466) !important; }
+            .section53{ fill:rgba(0, 64, 0, 0.466) !important; stroke:rgba(0,64,0,.507) !important;}
+            .section63{ fill:rgba(0, 64, 0, 0.507) !important; stroke:rgba(0,64,0,.564) !important;}
+            .section73{ fill:rgba(0, 64, 0, 0.564) !important; stroke:rgba(0,64,0,.664) !important;}
+            .section83{ fill:rgba(0, 64, 0, 0.664) !important; stroke:rgba(0,64,0,.685) !important;}
+            .section93{ fill:rgba(0, 64, 0, 0.685) !important; stroke:rgba(0,64,0,.800) !important;}
+            
+
+            .section13:hover,
+            .section23:hover,
+            .section33:hover,
+            .section43:hover,
+            .section53:hover,
+            .section63:hover,
+            .section73:hover,
+            .section83:hover,
+            .section93:hover,
+            .section03:hover{ stroke:rgba(0,64,0,1) !important; stroke-width:2px;  }
+
+
+
+            .section04{ fill:rgba(105, 105, 105, 0.096) !important; stroke:rgba(105,105,105,.234) !important;}
+            .section14{ fill:rgba(105, 105, 105, 0.226) !important; stroke:rgba(105,105,105,.342) !important;}
+            .section24{ fill:rgba(105, 105, 105, 0.342) !important; stroke:rgba(105,105,105,.384) !important; }
+            .section34{ fill:rgba(105, 105, 105, 0.384) !important; stroke:rgba(105,105,105,.411) !important; }
+            .section44{ fill:rgba(105, 105, 105, 0.411) !important; stroke:rgba(105,105,105,.466) !important; }
+            .section54{ fill:rgba(105, 105, 105, 0.466) !important; stroke:rgba(105,105,105,.507) !important;}
+            .section64{ fill:rgba(105, 105, 105, 0.507) !important; stroke:rgba(105,105,105,.564) !important;}
+            .section74{ fill:rgba(105, 105, 105, 0.564) !important; stroke:rgba(105,105,105,.664) !important;}
+            .section84{ fill:rgba(105, 105, 105, 0.664) !important; stroke:rgba(105,105,105,.685) !important;}
+            .section94{ fill:rgba(105, 105, 105, 0.685) !important; stroke:rgba(105,105,105,.800) !important;}
+            
+
+            .section14:hover,
+            .section24:hover,
+            .section34:hover,
+            .section44:hover,
+            .section54:hover,
+            .section64:hover,
+            .section74:hover,
+            .section84:hover,
+            .section94:hover,
+            .section04:hover{ stroke:rgba(105,105,105,1) !important; stroke-width:2px;  }
+
