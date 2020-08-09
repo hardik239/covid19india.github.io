@@ -1,5 +1,10 @@
 
 $(document).ready(function(){ 
+        
+         function formatNumber(number){
+            if(number)
+                return '+ ' + numeral(number).format('0,0a');
+          }
 
 
         // to display  table data on dashboard
@@ -11,6 +16,9 @@ $(document).ready(function(){
         var disp_data = '';
     
         $.each(data,function(key,value){
+               
+          if(key === "State Unassigned")
+            return
        
           $.each(value,function(key1,value1){
 
@@ -71,10 +79,10 @@ $(document).ready(function(){
         });
       });
 
-         $('#conf').text(tcases); // total cases 
-         $('#actv').text(acases); // total active
-         $('#recv').text(rcases); // total recover
-         $('#deac').text(dcases); // total death  
+         $('#conf').text(formatNumber(tcases)); // total cases 
+         $('#actv').text(formatNumber(acases)); // total active
+         $('#recv').text(formatNumber(rcases)); // total recover
+         $('#deac').text(formatNumber(dcases)); // total death   
    });
 
      
