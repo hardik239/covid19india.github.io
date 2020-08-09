@@ -1,4 +1,9 @@
 $(document).ready(function(){
+        
+        function formatNumber(number){
+            if(number)
+                return '+ ' + numeral(number).format('0,0a');
+          }
 
         var alldata = [], max_con = 0, max_act = 0, max_rec = 0, max_dec = 0, states_id = [];
 
@@ -107,17 +112,17 @@ $(document).ready(function(){
                     });
 
                     
-                     $("path, circle").hover(function(){
+                    $("path, circle").hover(function(){
                         if($(this).attr('id')){
                             $(this).addClass('stkhover');
                             
-                            $('#conf').text(alldata[$(this).attr('id')][0]);
+                            $('#conf').text(formatNumber(alldata[$(this).attr('id')][0]));
 
-                            $('#actv').text(alldata[$(this).attr('id')][1]);
+                            $('#actv').text(formatNumber(alldata[$(this).attr('id')][1]));
 
-                            $('#recv').text(alldata[$(this).attr('id')][2]);
+                            $('#recv').text(formatNumber(alldata[$(this).attr('id')][2]));
 
-                            $('#deac').text(alldata[$(this).attr('id')][3]);
+                            $('#deac').text(formatNumber(alldata[$(this).attr('id')][3]));
                             
                             $('#info-box').html(alldata[$(this).attr('id')][4]);
 
@@ -128,15 +133,17 @@ $(document).ready(function(){
 
                         function display_box(){
                       
-                             $('#conf').text(alldata['TT'][0]);
+                             $('#conf').text(formatNumber(alldata['TT'][0]));
 
-                             $('#actv').text(alldata['TT'][1]);
+                             $('#actv').text(formatNumber(alldata['TT'][1]));
 
-                             $('#recv').text(alldata['TT'][2]);
+                             $('#recv').text(formatNumber(alldata['TT'][2]));
 
-                             $('#deac').text(alldata['TT'][3]);
+                             $('#deac').text(formatNumber(alldata['TT'][3]));
 
                          }
+
+
 
                          display_box();
 
