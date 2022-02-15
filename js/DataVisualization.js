@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$.getJSON('data/data.json', function (Data) {
+	$.getJSON('covid19india.github.io/data/data.json', function (Data) {
 		for (var i = 0; i < Data.statewise.length; i++) {
 			if (i != 0)
 				$('#state').append(
@@ -145,7 +145,7 @@ $(document).ready(function () {
 
 	var Data;
 
-	$.get('data/state_daily.json', function (data) {
+	$.get('covid19india.github.io/data/state_daily.json', function (data) {
 		Data = data;
 		getData();
 	});

@@ -15,7 +15,7 @@ $(document).ready(function () {
 		dcases = 0,
 		st_code = [];
 
-	$.get('data/state_wise.json', function (data) {
+	$.get('covid19india.github.io/data/state_wise.json', function (data) {
 		var disp_data = '';
 
 		$.each(data, function (key, value) {
@@ -100,7 +100,7 @@ $(document).ready(function () {
 		$('table').click(false);
 	});
 
-	$.get('data/data.json', function (data) {
+	$.get('covid19india.github.io/data/data.json', function (data) {
 		var daily_con = [],
 			dates = [],
 			daily_act = [],
