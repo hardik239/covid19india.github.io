@@ -1,160 +1,128 @@
-$(document).ready(function(){
-        
-        function formatNumber(number){
-            if(number)
-                return '+ ' + numeral(number).format('0,0a');
-          }
+$(document).ready(async function () {
+	function formatNumber(number) {
+		if (number) return '+ ' + numeral(number).format('0,0a');
+	}
 
-        var alldata = [], max_con = 0, max_act = 0, max_rec = 0, max_dec = 0, states_id = [];
+	var alldata = [],
+		max_con = 0,
+		max_act = 0,
+		max_rec = 0,
+		max_dec = 0,
+		states_id = [];
 
-         $.getJSON('https://api.covid19india.org/data.json', function (Data) {
+	$.getJSON('../data/data.json', function (Data) {
+		for (var i = 0; i < Data.statewise.length; i++) {
+			alldata[String(Data.statewise[i].statecode)] = [
+				Number(Data.statewise[i].confirmed),
 
-    
-             for(var i=0;i<Data.statewise.length;i++){
+				Number(Data.statewise[i].active),
 
-                alldata[String(Data.statewise[i].statecode)] = [  Number(Data.statewise[i].confirmed),
+				Number(Data.statewise[i].recovered),
 
-                                                                  Number(Data.statewise[i].active),
+				Number(Data.statewise[i].deaths),
 
-                                                                  Number(Data.statewise[i].recovered),
+				Data.statewise[i].state,
+			];
 
-                                                                  Number(Data.statewise[i].deaths),
+			if (max_con < Number(Data.statewise[i].confirmed) && i)
+				max_con = Number(Data.statewise[i].confirmed);
 
-                                                                  Data.statewise[i].state
+			if (max_act < Number(Data.statewise[i].active) && i)
+				max_act = Number(Data.statewise[i].active);
 
-                                                               ];
+			if (max_rec < Number(Data.statewise[i].recovered) && i)
+				max_rec = Number(Data.statewise[i].recovered);
 
-             if(max_con < Number(Data.statewise[i].confirmed) && i)
-                 max_con = Number(Data.statewise[i].confirmed);
+			if (max_dec < Number(Data.statewise[i].deaths) && i)
+				max_dec = Number(Data.statewise[i].deaths);
+		}
 
-             if(max_act < Number(Data.statewise[i].active) && i)
-                 max_act = Number(Data.statewise[i].active);
+		$('path').each(function () {
+			if (this.id != '') states_id.push(this.id);
+		});
 
-             if(max_rec < Number(Data.statewise[i].recovered) && i)
-                 max_rec = Number(Data.statewise[i].recovered);
+		function genrate_section(maximum, code) {
+			var ratio = Math.ceil(maximum / 10);
 
-             if(max_dec < Number(Data.statewise[i].deaths) && i)
-                 max_dec = Number(Data.statewise[i].deaths);
-                
-                }
+			for (i = 0; i < states_id.length; i++) {
+				if (states_id[i] in alldata) {
+					$('#' + states_id[i]).removeAttr('class');
 
-                             $('path').each(function(){
-                              if(this.id != "")
-                                states_id.push(this.id);
-                             });
+					if (alldata[states_id[i]][code - 1] < ratio)
+						$('#' + states_id[i]).addClass('section0' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 2)
+						$('#' + states_id[i]).addClass('section1' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 3)
+						$('#' + states_id[i]).addClass('section2' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 4)
+						$('#' + states_id[i]).addClass('section3' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 5)
+						$('#' + states_id[i]).addClass('section4' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 6)
+						$('#' + states_id[i]).addClass('section5' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 7)
+						$('#' + states_id[i]).addClass('section6' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 8)
+						$('#' + states_id[i]).addClass('section7' + code);
+					else if (alldata[states_id[i]][code - 1] < ratio * 9)
+						$('#' + states_id[i]).addClass('section8' + code);
+					else $('#' + states_id[i]).addClass('section9' + code);
 
+					//sec11 21 31 41 51 sec12 22 32 42 52 sec13 23 33 43 53 sec14 24 34 45 54
+				}
+			}
+		}
 
+		genrate_section(max_con, 1);
 
-                       function genrate_section(maximum,code){
+		$('#conf_box').click(function () {
+			genrate_section(max_con, 1);
+		});
 
-                            var ratio =Math.ceil(maximum/10);
+		$('#actv_box').click(function () {
+			genrate_section(max_act, 2);
+		});
 
-                            for(i=0; i<states_id.length; i++){
+		$('#recv_box').click(function () {
+			genrate_section(max_rec, 3);
+		});
 
-                            if(states_id[i] in alldata){
+		$('#deac_box').click(function () {
+			genrate_section(max_dec, 4);
+		});
 
-                                $('#'+states_id[i]).removeAttr('class');
+		$('path, circle').hover(function () {
+			if ($(this).attr('id')) {
+				$(this).addClass('stkhover');
 
-                                if(alldata[states_id[i]][code-1] < ratio)
-                                    $('#'+states_id[i]).addClass('section0'+code);
+				$('#conf').text(formatNumber(alldata[$(this).attr('id')][0]));
 
-                                else if(alldata[states_id[i]][code-1]<(ratio*2))
-                                    $('#'+states_id[i]).addClass('section1'+code);
+				$('#actv').text(formatNumber(alldata[$(this).attr('id')][1]));
 
-                                else if(alldata[states_id[i]][code-1]<(ratio*3))
-                                    $('#'+states_id[i]).addClass('section2'+code);
-                              
-                                else if(alldata[states_id[i]][code-1]<(ratio*4))
-                                    $('#'+states_id[i]).addClass('section3'+code);
-                            
-                                else if(alldata[states_id[i]][code-1]<(ratio*5))
-                                    $('#'+states_id[i]).addClass('section4'+code);
+				$('#recv').text(formatNumber(alldata[$(this).attr('id')][2]));
 
-                                else if(alldata[states_id[i]][code-1]<(ratio*6))
-                                    $('#'+states_id[i]).addClass('section5'+code);
-                                
-                                else if(alldata[states_id[i]][code-1]<(ratio*7))
-                                    $('#'+states_id[i]).addClass('section6'+code);
-                            
-                                else if(alldata[states_id[i]][code-1]<(ratio*8))
-                                    $('#'+states_id[i]).addClass('section7'+code);
-                        
-                                else if(alldata[states_id[i]][code-1]<(ratio*9))
-                                    $('#'+states_id[i]).addClass('section8'+code);
-                                
-                                else
-                                    $('#'+states_id[i]).addClass('section9'+code);
+				$('#deac').text(formatNumber(alldata[$(this).attr('id')][3]));
 
+				$('#info-box').html(alldata[$(this).attr('id')][4]);
+			}
+		});
 
-                            //sec11 21 31 41 51 sec12 22 32 42 52 sec13 23 33 43 53 sec14 24 34 45 54
-                            }
-                              
-                        } 
+		function display_box() {
+			$('#conf').text(formatNumber(alldata['TT'][0]));
 
-                    }
+			$('#actv').text(formatNumber(alldata['TT'][1]));
 
-                    genrate_section(max_con,1);
+			$('#recv').text(formatNumber(alldata['TT'][2]));
 
-                    $('#conf_box').click(function(){
-                        genrate_section(max_con,1);
-                    });
+			$('#deac').text(formatNumber(alldata['TT'][3]));
+		}
 
-                    $('#actv_box').click(function(){
-                        genrate_section(max_act,2);
-                    });
+		display_box();
 
-                    $('#recv_box').click(function(){
-                        genrate_section(max_rec,3);
-                    });
-
-                    $('#deac_box').click(function(){
-                        genrate_section(max_dec,4);
-                    });
-
-                    
-                    $("path, circle").hover(function(){
-                        if($(this).attr('id')){
-                            $(this).addClass('stkhover');
-                            
-                            $('#conf').text(formatNumber(alldata[$(this).attr('id')][0]));
-
-                            $('#actv').text(formatNumber(alldata[$(this).attr('id')][1]));
-
-                            $('#recv').text(formatNumber(alldata[$(this).attr('id')][2]));
-
-                            $('#deac').text(formatNumber(alldata[$(this).attr('id')][3]));
-                            
-                            $('#info-box').html(alldata[$(this).attr('id')][4]);
-
-                        }
-
-                     });
-                     
-
-                        function display_box(){
-                      
-                             $('#conf').text(formatNumber(alldata['TT'][0]));
-
-                             $('#actv').text(formatNumber(alldata['TT'][1]));
-
-                             $('#recv').text(formatNumber(alldata['TT'][2]));
-
-                             $('#deac').text(formatNumber(alldata['TT'][3]));
-
-                         }
-
-
-
-                         display_box();
-
-                         $("path, circle").mouseleave(function() {
-
-                            display_box();
-                            $(this).removeClass('stkhover');
-                            $('#info-box').text('India');
-
-                        });
-
-        });
-
+		$('path, circle').mouseleave(function () {
+			display_box();
+			$(this).removeClass('stkhover');
+			$('#info-box').text('India');
+		});
+	});
 });
