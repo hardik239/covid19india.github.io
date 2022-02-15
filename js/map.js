@@ -10,7 +10,7 @@ $(document).ready(async function () {
 		max_dec = 0,
 		states_id = [];
 
-	$.getJSON('covid19india.github.io/data/data.json', function (Data) {
+	$.getJSON('data/data.json', function (Data) {
 		for (var i = 0; i < Data.statewise.length; i++) {
 			alldata[String(Data.statewise[i].statecode)] = [
 				Number(Data.statewise[i].confirmed),

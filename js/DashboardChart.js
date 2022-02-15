@@ -100,7 +100,7 @@ $(document).ready(function () {
 		$('table').click(false);
 	});
 
-	$.get('covid19india.github.io/data/data.json', function (data) {
+	$.get('data/data.json', function (data) {
 		var daily_con = [],
 			dates = [],
 			daily_act = [],
